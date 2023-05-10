@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
  */
 package quickdrop;
-
+   
 /**
  *
  * @author Jadge
@@ -15,6 +15,9 @@ public class QuickDrop {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        Login log = new Login();
+        log.show();
+        
     }
     
 }
