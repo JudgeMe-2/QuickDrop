@@ -5,6 +5,7 @@
 package quickdrop;
 
 import javax.swing.JOptionPane;
+import quickdrop.Classes.User;
 
 /**
  *
@@ -36,6 +37,8 @@ public class Register extends javax.swing.JFrame {
         numreg = new javax.swing.JTextField();
         registerbtn = new javax.swing.JButton();
         errorl = new java.awt.Label();
+        lblnum1 = new javax.swing.JLabel();
+        name_field = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(450, 370));
@@ -76,40 +79,57 @@ public class Register extends javax.swing.JFrame {
         errorl.setText("Invalid Number");
         errorl.setVisible(false);
 
+        lblnum1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lblnum1.setForeground(new java.awt.Color(0, 0, 0));
+        lblnum1.setText("Enter Name");
+
+        name_field.setBackground(new java.awt.Color(255, 255, 255));
+        name_field.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        name_field.setForeground(new java.awt.Color(96, 150, 180));
+        name_field.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(96, 150, 180), 1, true));
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(88, 88, 88)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, 0)
-                                .addComponent(numreg, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(lblnum)
-                            .addComponent(errorl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(163, 163, 163)
-                        .addComponent(registerbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(111, Short.MAX_VALUE))
+                .addGap(170, 170, 170)
+                .addComponent(registerbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(88, 88, 88)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(numreg, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(name_field, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(lblnum, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(errorl, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblnum1, javax.swing.GroupLayout.Alignment.LEADING))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addGap(117, 117, 117))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(108, 108, 108)
+                .addContainerGap(50, Short.MAX_VALUE)
+                .addComponent(errorl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 71, Short.MAX_VALUE)
+                .addComponent(lblnum1, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(name_field, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblnum, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(numreg, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(3, 3, 3)
-                .addComponent(errorl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(registerbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(155, Short.MAX_VALUE))
+                .addGap(63, 63, 63))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -127,28 +147,31 @@ public class Register extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void registerbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerbtnActionPerformed
+        if(name_field.getText().isBlank()) {
+            JOptionPane.showMessageDialog(null, "Enter Name");
+        }
         if(!validateInput()) {
-            JOptionPane.showMessageDialog(null, "Input must not be Blank");
+            JOptionPane.showMessageDialog(null, "Enter Phonenumber");
             errorl.setVisible(true);
         } else {
+            errorl.setVisible(false);
             if(conn.validateNewUser(numreg.getText())) {
-                conn.registerUser(numreg.getText(), 2);
+                User u = new User(name_field.getText(), numreg.getText());
+                u.setUser_type(0);
+                conn.registerUser(u);
+                dispose();
             }
         }
         
-        try {
-            Double.parseDouble(numreg.getText());
-        } catch(NumberFormatException e) {
-            errorl.setVisible(true);
-        }
     }//GEN-LAST:event_registerbtnActionPerformed
     public boolean validateInput() {
         if(numreg.getText().isBlank()) {
             return false;
         } else {
-            try {
+             try {
                 Double.parseDouble(numreg.getText());
-            }catch(NumberFormatException e) {
+            } catch(NumberFormatException e) {
+                errorl.setVisible(true);
                 return false;
             }
         }
@@ -195,6 +218,8 @@ public class Register extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JLabel lblnum;
+    private javax.swing.JLabel lblnum1;
+    private javax.swing.JTextField name_field;
     private javax.swing.JTextField numreg;
     private javax.swing.JButton registerbtn;
     // End of variables declaration//GEN-END:variables

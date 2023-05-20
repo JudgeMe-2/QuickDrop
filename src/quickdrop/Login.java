@@ -5,18 +5,18 @@
 package quickdrop;
 
 import javax.swing.JOptionPane;
+import quickdrop.Classes.User;
 
 /**
  *
  * @author Jadge
  */
-public class Login extends javax.swing.JFrame {
+public class Login extends javax.swing.JFrame implements DataCallback {
 
     /**
      * Creates new form Login
      */
     Connect conn;
-    Main main;
     public Login() {
         initComponents();
         conn = new Connect();
@@ -119,7 +119,7 @@ public class Login extends javax.swing.JFrame {
 
         joinbtn.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         joinbtn.setForeground(new java.awt.Color(96, 150, 180));
-        joinbtn.setText("Want to join us? Join now!");
+        joinbtn.setText("Not yet Registered? Join now!");
         joinbtn.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 joinbtnMouseClicked(evt);
@@ -203,24 +203,32 @@ public class Login extends javax.swing.JFrame {
 
     private void loginbuttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginbuttonActionPerformed
         // TODO add your handling code here:
-        int result;
+        User result;
         if(!validateInput()) {
             //JOptionPane.showMessageDialog(null, "Invalid Input");
             errorlbl.setVisible(true);
             numtf.setText("");
         } else {
-            errorlbl.setVisible(false);
             if(conn.validateNewUser(numtf.getText())) {
-                conn.registerUser(numtf.getText(), 0);
+                JOptionPane.showConfirmDialog(null, "Not yet registered");
+                return;
             }
+            errorlbl.setVisible(false);
             result = conn.loginUser(numtf.getText());
-            if(result == -1) {
+            if(result.getUser_type() == -1) {
                 JOptionPane.showMessageDialog(null, "Error Login!");
-            } else if(result == 0) {
-                JMain m = new JMain(numtf.getText());
+            } else if(result.getUser_type() == 0) {
+                JMain m = new JMain(result);
                 m.show();
                 dispose();
+            } else if(result.getUser_type() == 2) {
+                RiderDelivery r = new RiderDelivery(result);
+                r.show();;
+                this.dispose();
             } else {
+                VerifyDelivery ver = new VerifyDelivery(result);
+                ver.show();
+                dispose();
                 /*Home h = new Home(numtf.getText());
                 h.show();
                 dispose();*/
@@ -300,4 +308,9 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JButton loginbutton;
     private javax.swing.JTextField numtf;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public void onDataReceived(String data) {
+        
+    }
 }

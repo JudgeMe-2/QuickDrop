@@ -12,18 +12,21 @@ import java.net.IDN;
  */
 public class User {
     private int id;
+    private String name;
     private String cntrycode;
     private String phone_number;
     private int user_type;
 
-    public User(int id, String cntrycode, String phone_number, int user_type) {
+    public User(int id, String name, String cntrycode, String phone_number, int user_type) {
         this.id = id;
+        this.name = name;
         this.cntrycode = cntrycode;
         this.phone_number = phone_number;
         this.user_type = user_type;
     }
 
-    public User(String phone_number) {
+    public User(String name, String phone_number) {
+        this.name = name;
         this.phone_number = phone_number;
     }
 
@@ -37,6 +40,16 @@ public class User {
     public void setId(int id) {
         this.id = id;
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+    
+    
 
     public String getCntrycode() {
         return cntrycode;
